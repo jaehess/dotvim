@@ -167,7 +167,7 @@ this can be overridden with `g:dotvim_settings.autocomplete_method`
 
 ### [nerdtree](https://github.com/scrooloose/nerdtree)
 *  file browser
-*  `<F2>` toggle browser
+*  `<D-Bslash>` toggle browser
 *  `<F3>` open tree to path of the current file
 
 ### [tcomment](https://github.com/tomtom/tcomment_vim)
@@ -186,9 +186,6 @@ this can be overridden with `g:dotvim_settings.autocomplete_method`
 ### [tabular](https://github.com/godlygeek/tabular)
 *  easily aligns code
 *  `<leader>a&`, `<leader>a=`, `<leader>a:`, `<leader>a,`, `<leader>a|`
-
-### [gist](https://github.com/mattn/gist-vim)
-*  automatically get or push changes for gists with `:Gist`
 
 ### [emmet](https://github.com/mattn/emmet-vim)
 *  makes for writing html/css extremely fast
@@ -218,7 +215,6 @@ this can be overridden with `g:dotvim_settings.autocomplete_method`
 *  [surround](https://github.com/tpope/vim-surround) makes for quick work of surrounds
 *  [repeat](https://github.com/tpope/vim-repeat) repeat plugin commands
 *  [speeddating](https://github.com/tpope/vim-speeddating) `Ctrl+A` and `Ctrl+X` for dates
-*  [gist](https://github.com/mattn/gist-vim) awesome plugin for your gist needs
 *  [signature](https://github.com/kshenoy/vim-signature) shows marks beside line numbers
 *  [matchit](https://github.com/vim-scripts/matchit.zip) makes your `%` more awesome
 *  [syntastic](https://github.com/scrooloose/syntastic) awesome syntax checking for a variety of languages

@@ -514,7 +514,7 @@
       let NERDTreeShowBookmarks=0
       let NERDTreeIgnore=['\.git','\.hg']
       let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
-      nnoremap <F2> :NERDTreeToggle<CR>
+      nnoremap <D-Bslash> :NERDTreeToggle<CR>
       nnoremap <F3> :NERDTreeFind<CR>
     "}}}
     call dein#add('majutsushi/tagbar', {'on_cmd':'TagbarToggle'}) "{{{
@@ -637,10 +637,6 @@
       let g:syntastic_style_error_symbol = '✠'
       let g:syntastic_warning_symbol = '∆'
       let g:syntastic_style_warning_symbol = '≈'
-    "}}}
-    call dein#add('mattn/gist-vim', { 'depends': 'mattn/webapi-vim', 'on_cmd': 'Gist' }) "{{{
-      let g:gist_post_private=1
-      let g:gist_show_privates=1
     "}}}
     call dein#add('Shougo/vimshell.vim', {'on_cmd':[ 'VimShell', 'VimShellInteractive' ]}) "{{{
       if s:is_macvim
