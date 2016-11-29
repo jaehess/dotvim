@@ -15,7 +15,7 @@
   let s:settings.max_column = 120
   let s:settings.autocomplete_method = 'neocomplcache'
   let s:settings.enable_cursorcolumn = 0
-  let s:settings.colorscheme = 'spacegray'
+  let s:settings.colorscheme = 'one'
   if has('lua')
     let s:settings.autocomplete_method = 'neocomplete'
   elseif filereadable(expand("~/.vim/bundle/YouCompleteMe/python/ycm_core.*"))
@@ -261,11 +261,15 @@
       autocmd GUIEnter * simalt ~x
     endif
 
-    set guioptions+=t                                 "tear off menu items
-    set guioptions-=T                                 "toolbar icons
+    set guioptions+=t "tear off menu items
+    set guioptions-=r "remove scrollbars
+    set guioptions-=R "remove scrollbars
+    set guioptions-=l "remove scrollbars
+    set guioptions-=L "remove scrollbars
+    set guioptions-=T "toolbar icons
 
     if s:is_macvim
-      set gfn=Ubuntu_Mono:h14
+      set gfn=Fira\ Code:h14
       set transparency=2
     endif
 
@@ -297,19 +301,7 @@
   if count(s:settings.plugin_groups, 'core') "{{{
     call dein#add('vim-scripts/matchit.zip')
     call dein#add('vim-airline/vim-airline') "{{{
-      let g:airline#extensions#tabline#enabled = 0
-      let g:airline#extensions#tabline#left_sep = ' '
-      let g:airline#extensions#tabline#left_alt_sep = '¦'
-      let g:airline#extensions#tabline#buffer_idx_mode = 1
-      nmap <leader>1 <Plug>AirlineSelectTab1
-      nmap <leader>2 <Plug>AirlineSelectTab2
-      nmap <leader>3 <Plug>AirlineSelectTab3
-      nmap <leader>4 <Plug>AirlineSelectTab4
-      nmap <leader>5 <Plug>AirlineSelectTab5
-      nmap <leader>6 <Plug>AirlineSelectTab6
-      nmap <leader>7 <Plug>AirlineSelectTab7
-      nmap <leader>8 <Plug>AirlineSelectTab8
-      nmap <leader>9 <Plug>AirlineSelectTab9
+      let g:airline_powerline_fonts=1
     "}}}
     call dein#add('tpope/vim-surround')
     call dein#add('tpope/vim-repeat')
@@ -451,7 +443,6 @@
     call dein#add('tomtom/tcomment_vim')
     call dein#add('terryma/vim-expand-region')
     call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('chrisbra/NrrwRgn')
     call dein#add('godlygeek/tabular', {'on_cmd':'Tabularize'}) "{{{
       nmap <Leader>a& :Tabularize /&<CR>
       vmap <Leader>a& :Tabularize /&<CR>
@@ -832,17 +823,10 @@
 "}}}
 
 " color schemes {{{
-  call dein#add('altercation/vim-colors-solarized') "{{{
-    let g:solarized_termcolors=256
-    let g:solarized_termtrans=1
+  call dein#add('rakr/vim-one') "{{{
+      let g:one_allow_italics=1
+      let g:airline_theme='one'
   "}}}
-  call dein#add('chriskempson/vim-tomorrow-theme')
-  call dein#add('chriskempson/base16-vim')
-  call dein#add('ajh17/Spacegray.vim') "{{{
-    let g:spacegray_underline_search=1
-    let g:spacegray_italicize_comments=1
-"}}}
-
 " finish loading {{{
   if exists('g:dotvim_settings.disabled_plugins')
     for plugin in g:dotvim_settings.disabled_plugins

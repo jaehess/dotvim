@@ -11,7 +11,7 @@ while it is very easy to install this and get up and running on a brand new mach
 ## installation
 
 1.  clone this repository into your `~/.vim` directory
-1.  `git submodule init && git submodule update`
+1.  `git submodule init; and git submodule update`
 1.  `mv ~/.vimrc ~/.vimrc.backup`
 1.  create the following shim and save it as `~/.vimrc`:
 
@@ -183,9 +183,6 @@ this can be overridden with `g:dotvim_settings.autocomplete_method`
 *  `\b` search open buffers
 *  `\o` parses the current file for functions with [funky](https://github.com/tacahiroy/ctrlp-funky)
 
-### [nrrwrgn](http://github.com/chrisbra/NrrwRgn)
-*  `<leader>nr` puts the current visual selection into a new scratch buffer, allowing you to perform global commands and merge changes to the original file automatically
-
 ### [tabular](https://github.com/godlygeek/tabular)
 *  easily aligns code
 *  `<leader>a&`, `<leader>a=`, `<leader>a:`, `<leader>a,`, `<leader>a|`
@@ -251,16 +248,6 @@ i wanted to give special thanks to all of the people who worked on the following
 
 ## license
 [WTFPL](http://sam.zoy.org/wtfpl/)
-
-## changelog
-
-*  v2
-  * `NeoBundle` replaced with `dein`
-*  v1
-  * requires `g:dotvim_settings.version` to be defined
-  * disable all langauge-specific plugins by default
-  * add support for `g:dotvim_settings.plugin_groups_include`
-
 
 [ycm]: https://github.com/Valloric/YouCompleteMe
 [us]: https://github.com/SirVer/ultisnips
