@@ -7,17 +7,7 @@
 "}}}
 
 " dotvim settings {{{
-  if !exists('g:dotvim_settings') || !exists('g:dotvim_settings.version')
-    echom 'The g:dotvim_settings and g:dotvim_settings.version variables must be defined.  Please consult the README.'
-    finish
-  endif
-
   let s:cache_dir = get(g:dotvim_settings, 'cache_dir', '~/.vim/.cache')
-
-  if g:dotvim_settings.version != 2
-    echom 'The version number in your shim does not match the distribution version.  Please consult the README changelog section.'
-    finish
-  endif
 
   " initialize default settings
   let s:settings = {}
@@ -25,7 +15,7 @@
   let s:settings.max_column = 120
   let s:settings.autocomplete_method = 'neocomplcache'
   let s:settings.enable_cursorcolumn = 0
-  let s:settings.colorscheme = 'jellybeans'
+  let s:settings.colorscheme = 'spacegray'
   if has('lua')
     let s:settings.autocomplete_method = 'neocomplete'
   elseif filereadable(expand("~/.vim/bundle/YouCompleteMe/python/ycm_core.*"))
@@ -41,7 +31,6 @@
     call add(s:settings.plugin_groups, 'javascript')
     call add(s:settings.plugin_groups, 'ruby')
     call add(s:settings.plugin_groups, 'python')
-    call add(s:settings.plugin_groups, 'scala')
     call add(s:settings.plugin_groups, 'go')
     call add(s:settings.plugin_groups, 'scm')
     call add(s:settings.plugin_groups, 'editing')
@@ -57,7 +46,7 @@
 
     " exclude all language-specific plugins by default
     if !exists('g:dotvim_settings.plugin_groups_exclude')
-      let g:dotvim_settings.plugin_groups_exclude = ['web','javascript','ruby','python','go','scala']
+      let g:dotvim_settings.plugin_groups_exclude = ['web','javascript','ruby','python','go']
     endif
     for group in g:dotvim_settings.plugin_groups_exclude
       let i = index(s:settings.plugin_groups, group)
@@ -308,7 +297,7 @@
   if count(s:settings.plugin_groups, 'core') "{{{
     call dein#add('vim-scripts/matchit.zip')
     call dein#add('vim-airline/vim-airline') "{{{
-      let g:airline#extensions#tabline#enabled = 1
+      let g:airline#extensions#tabline#enabled = 0
       let g:airline#extensions#tabline#left_sep = ' '
       let g:airline#extensions#tabline#left_alt_sep = '¦'
       let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -381,10 +370,6 @@
     call dein#add('davidhalter/jedi-vim', {'on_ft':['python']}) "{{{
       let g:jedi#popup_on_dot=0
     "}}}
-  endif "}}}
-  if count(s:settings.plugin_groups, 'scala') "{{{
-    call dein#add('derekwyatt/vim-scala')
-    call dein#add('megaannum/vimside')
   endif "}}}
   if count(s:settings.plugin_groups, 'go') "{{{
     call dein#add('jnwhiteh/vim-golang', {'on_ft':['go']})
@@ -533,9 +518,9 @@
     call dein#add('scrooloose/nerdtree', {'on_cmd':['NERDTreeToggle','NERDTreeFind']}) "{{{
       let NERDTreeShowHidden=1
       let NERDTreeQuitOnOpen=0
-      let NERDTreeShowLineNumbers=1
+      let NERDTreeShowLineNumbers=0
       let NERDTreeChDirMode=0
-      let NERDTreeShowBookmarks=1
+      let NERDTreeShowBookmarks=0
       let NERDTreeIgnore=['\.git','\.hg']
       let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
       nnoremap <F2> :NERDTreeToggle<CR>
@@ -851,15 +836,11 @@
     let g:solarized_termcolors=256
     let g:solarized_termtrans=1
   "}}}
-  call dein#add('nanotech/jellybeans.vim')
-  call dein#add('tomasr/molokai')
   call dein#add('chriskempson/vim-tomorrow-theme')
   call dein#add('chriskempson/base16-vim')
-  call dein#add('w0ng/vim-hybrid')
-  call dein#add('sjl/badwolf')
-  call dein#add('zeis/vim-kolor') "{{{
-    let g:kolor_underlined=1
-  "}}}
+  call dein#add('ajh17/Spacegray.vim') "{{{
+    let g:spacegray_underline_search=1
+    let g:spacegray_italicize_comments=1
 "}}}
 
 " finish loading {{{
